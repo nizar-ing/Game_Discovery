@@ -7,7 +7,7 @@ import {getCroppedImageUrl} from "../services/getCroppedImageUrl";
 
 export const GameCard: React.FC<{game: Game}> = ({game}) => {
     return (
-      <Card>
+      <Card height='340px'>
           <Image src={getCroppedImageUrl(game.background_image)} />
           <CardBody>
               <Heading fontSize="2xl">{game.name}</Heading>

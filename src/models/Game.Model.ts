@@ -4,5 +4,6 @@ export interface Game {
     id: number,
     name: string,
     background_image: string,
-    parent_platforms: {platform: PlatformModel}[]
+    parent_platforms: {platform: PlatformModel}[],
+    metacritic: number
 }

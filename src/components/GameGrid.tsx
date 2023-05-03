@@ -6,24 +6,26 @@ import {GameCardSkeleton} from "./GameCardSkeleton";
 import {GameCardContainer} from "./GameCardContainer";
 import {Game} from "../models/Game.Model";
 import {useData} from "../hooks/useData";
+import React from "react";
+import {Genre} from "../models/Genre.Model";
 
 
-export const GameGrid = () => {
-    const {data, error, isLoading} = useData<Game>('/games');
+export const GameGrid: React.FC<{selectedGenre: Genre | null}> = ({selectedGenre}) => {
+    const {data, error, isLoading} = useGames(selectedGenre);
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
     return (
         <>
             { error && <Text>{error}</Text>}
             <SimpleGrid columns={{sm: 1, md: 2, lg: 3, xl: 4}} spacing={6} padding="10px">
                 {isLoading && skeletons.map((skeleton) => (
-                                                    <GameCardContainer>
-                                                        <GameCardSkeleton key={skeleton} />
+                                                    <GameCardContainer key={skeleton}>
+                                                        <GameCardSkeleton />
                                                     </GameCardContainer>
                                                 )
                     )}
                 {data.map((game) => (
-                                                <GameCardContainer>
-                                                    <GameCard key={game.id} game={game} />
+                                                <GameCardContainer key={game.id}>
+                                                    <GameCard game={game} />
                                                 </GameCardContainer>
                                             )
                 )}

@@ -5,7 +5,7 @@ export const ColorModeSwitch: React.FC<{handleToggleColor: () => void, colorMode
 
     return (
         <HStack>
-            <Switch colorScheme='green' isChecked={colorMode === 'dark'} onChange={handleToggleColor} />
+            <Switch colorScheme='teal' isChecked={colorMode === 'dark'} onChange={handleToggleColor} />
             <Text fontFamily='monospace' fontWeight='extrabold' fontSize="14px">Dark Mode</Text>
         </HStack>
     );

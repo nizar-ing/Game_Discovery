@@ -10,7 +10,7 @@ export const NavBar = () => {
     return (
         <HStack justifyContent="space-between" paddingRight="10px" borderBottom='1px'
                 borderColor={colorMode === 'dark' ? 'whitesmoke' : 'gray.700'}
-                bg={colorMode === 'dark' ? 'gray.700' : 'gray.100'}
+                bg={colorMode === 'dark' ? 'gray.700' : 'whitesmoke'}
         >
             <HStack>
                 <Image src={logo} boxSize='60px' />

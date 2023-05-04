@@ -9,10 +9,11 @@ import {useData} from "../hooks/useData";
 import React from "react";
 import {Genre} from "../models/Genre.Model";
 import {PlatformModel} from "../models/Platform.Model";
+import GameQuery from "../queryObjects/GameQuery";
 
 
-export const GameGrid: React.FC<{selectedGenre: Genre | null, selectedPlatform: PlatformModel | null}> = ({selectedGenre, selectedPlatform}) => {
-    const {data, error, isLoading} = useGames(selectedGenre, selectedPlatform);
+export const GameGrid: React.FC<{gameQuery: GameQuery}> = ({gameQuery}) => {
+    const {data, error, isLoading} = useGames(gameQuery);
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
     return (
         <>

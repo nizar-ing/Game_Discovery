@@ -4,7 +4,7 @@ import {usePlatforms} from "../hooks/usePlatforms";
 import React from "react";
 import {PlatformModel} from "../models/Platform.Model";
 
-export const PlatformSelector: React.FC<{selectedPlatform: PlatformModel, onSelectedPlatform: (platform: PlatformModel) => void}> = ({selectedPlatform, onSelectedPlatform}) => {
+export const PlatformSelector: React.FC<{selectedPlatform: PlatformModel | null, onSelectedPlatform: (platform: PlatformModel) => void}> = ({selectedPlatform, onSelectedPlatform}) => {
     const { data, error } = usePlatforms();
     if(error) return null;
     return (

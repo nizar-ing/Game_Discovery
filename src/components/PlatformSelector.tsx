@@ -8,17 +8,15 @@ export const PlatformSelector: React.FC<{selectedPlatform: PlatformModel | null,
     const { data, error } = usePlatforms();
     if(error) return null;
     return (
-        <Flex mt={2} ml={2}>
-            <Menu >
-                <MenuButton as={Button} rightIcon={<BsChevronDown />} >
-                    { selectedPlatform?.name || 'Platforms'}
-                </MenuButton>
-                <MenuList>
-                    {
-                        data.map((platform) => <MenuItem key={platform.id} onClick={() => onSelectedPlatform(platform)}>{platform.name}</MenuItem>)
-                    }
-                </MenuList>
-            </Menu>
-        </Flex>
+        <Menu >
+            <MenuButton as={Button} rightIcon={<BsChevronDown />} >
+                { selectedPlatform?.name || 'Platforms'}
+            </MenuButton>
+            <MenuList>
+                {
+                    data.map((platform) => <MenuItem key={platform.id} onClick={() => onSelectedPlatform(platform)}>{platform.name}</MenuItem>)
+                }
+            </MenuList>
+        </Menu>
     );
 };

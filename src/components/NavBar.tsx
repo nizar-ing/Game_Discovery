@@ -1,11 +1,10 @@
-import {HStack, Image, Text, useColorMode} from "@chakra-ui/react";
+import {ColorMode, HStack, Image, Text, useColorMode} from "@chakra-ui/react";
 import logo from '../assets/logo.webp';
 import {ColorModeSwitch} from "./ColorModeSwitch";
-import {useState} from "react";
+import React from "react";
 
-
-export const NavBar = () => {
-    const {colorMode, toggleColorMode} =  useColorMode();
+export const NavBar: React.FC<{colorMode: ColorMode, toggleColorMode: () => void}> = ({colorMode, toggleColorMode}) => {
+    //const {colorMode, toggleColorMode} =  useColorMode();
 
     return (
         <HStack justifyContent="space-between" paddingRight="10px" borderBottom='1px'

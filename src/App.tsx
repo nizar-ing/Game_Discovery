@@ -5,11 +5,13 @@ import {GenreList} from "./components/GenreList";
 import {useState} from "react";
 import {Genre} from "./models/Genre.Model";
 import {PlatformSelector} from "./components/PlatformSelector";
+import {PlatformModel} from "./models/Platform.Model";
 
 function App() {
     const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-    const {colorMode, toggleColorMode} =  useColorMode();
+    const [selectedPlatform, setSelectedPlatform] = useState<PlatformModel | null>(null);
 
+    const {colorMode, toggleColorMode} =  useColorMode();
     return (
         <Grid templateAreas={{
             base: `"nav" "main"`,
@@ -29,8 +31,8 @@ function App() {
                 </GridItem>
             </Show>
             <GridItem area="main">
-                <PlatformSelector />
-                <GameGrid selectedGenre={selectedGenre} />
+                <PlatformSelector selectedPlatform={selectedPlatform} onSelectedPlatform={(platform: PlatformModel) => setSelectedPlatform(platform)} />
+                <GameGrid selectedGenre={selectedGenre} selectedPlatform={selectedPlatform} />
             </GridItem>
         </Grid>
     )

@@ -8,10 +8,11 @@ import {Game} from "../models/Game.Model";
 import {useData} from "../hooks/useData";
 import React from "react";
 import {Genre} from "../models/Genre.Model";
+import {PlatformModel} from "../models/Platform.Model";
 
 
-export const GameGrid: React.FC<{selectedGenre: Genre | null}> = ({selectedGenre}) => {
-    const {data, error, isLoading} = useGames(selectedGenre);
+export const GameGrid: React.FC<{selectedGenre: Genre | null, selectedPlatform: PlatformModel | null}> = ({selectedGenre, selectedPlatform}) => {
+    const {data, error, isLoading} = useGames(selectedGenre, selectedPlatform);
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
     return (
         <>

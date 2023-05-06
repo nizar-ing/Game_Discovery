@@ -9,6 +9,7 @@ import GameQuery from "./queryObjects/GameQuery";
 import {SortSelector} from "./components/SortSelector";
 
 import nizarImg from "./assets/nizar.jpg";
+import {GameHeading} from "./components/GameHeading";
 
 function App() {
     /*const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -23,7 +24,7 @@ function App() {
         }}
           templateColumns={{
               base: '1fr',
-              lg: '200px 1fr'
+              lg: '220px 1fr'
           }}
         >
             <GridItem area="nav">
@@ -35,6 +36,7 @@ function App() {
                 </GridItem>
             </Show>
             <GridItem area="main">
+                <GameHeading gameQuery={gameQuery} />
                 <HStack mt={3} ml={2} mb={4} spacing={5}>
                     <PlatformSelector selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform: PlatformModel) => setGameQuery({ ...gameQuery, platform})} />
                     <SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder})} />
@@ -42,7 +44,7 @@ function App() {
                 <GameGrid gameQuery={gameQuery} />
             </GridItem>
             <GridItem  area="footer">
-                <Center bg='gray.700' h='200px' color='white' >
+                <Center bg='gray.700' m={2} h='150px' color='white' borderRadius='10px' >
                     <Flex flexDir={'column'} justifyContent={'center'} alignItems={'center'}>
                         <Image src={nizarImg} boxSize="70px" borderRadius="full" />
                         <Text fontFamily={'monospace'} fontSize="18px">INizar&copy;2023</Text>

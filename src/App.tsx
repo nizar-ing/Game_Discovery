@@ -44,10 +44,10 @@ function App() {
                 <GameGrid gameQuery={gameQuery} />
             </GridItem>
             <GridItem  area="footer">
-                <Center bg='gray.700' m={2} h='150px' color='white' borderRadius='10px' >
+                <Center m={2} h='150px' color='white' border='1px' borderColor={colorMode === 'dark' ? 'white' : 'gray.700'} borderRadius='10px' bg={colorMode === 'dark' ? 'gray.700' : 'whitesmoke'} >
                     <Flex flexDir={'column'} justifyContent={'center'} alignItems={'center'}>
-                        <Image src={nizarImg} boxSize="70px" borderRadius="full" />
-                        <Text fontFamily={'monospace'} fontSize="18px">INizar&copy;2023</Text>
+                        <Image src={nizarImg} boxSize="100px" borderRadius="full" objectFit='cover' />
+                        <Text fontFamily={'monospace'} fontSize="18px" color={colorMode === 'dark' ? 'white' : 'gray.600'}>INizar&copy;2023</Text>
                     </Flex>
                 </Center>
             </GridItem>

@@ -1,4 +1,4 @@
-import {Grid, GridItem, HStack, Show, useColorMode} from "@chakra-ui/react";
+import {Center, Flex, Grid, GridItem, HStack, Image, Show, Text, useColorMode, VStack} from "@chakra-ui/react";
 import {NavBar} from "./components/NavBar";
 import {GameGrid} from "./components/GameGrid";
 import {GenreList} from "./components/GenreList";
@@ -8,6 +8,8 @@ import {PlatformModel} from "./models/Platform.Model";
 import GameQuery from "./queryObjects/GameQuery";
 import {SortSelector} from "./components/SortSelector";
 
+import nizarImg from "./assets/nizar.jpg";
+
 function App() {
     /*const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
     const [selectedPlatform, setSelectedPlatform] = useState<PlatformModel | null>(null);*/
@@ -16,8 +18,8 @@ function App() {
     const {colorMode, toggleColorMode} =  useColorMode();
     return (
         <Grid templateAreas={{
-            base: `"nav" "main"`,
-            lg: `"nav nav" "aside main"`
+            base: `"nav" "main" "footer"`,
+            lg: `"nav nav" "aside main" "footer footer"`
         }}
           templateColumns={{
               base: '1fr',
@@ -25,7 +27,7 @@ function App() {
           }}
         >
             <GridItem area="nav">
-                <NavBar colorMode={colorMode} toggleColorMode={() => toggleColorMode()} />
+                <NavBar colorMode={colorMode} toggleColorMode={() => toggleColorMode()} onSearch={(searchText => setGameQuery({ ...gameQuery, searchText}))} />
             </GridItem>
             <Show above="lg">
                 <GridItem area="aside" paddingX={5} paddingY={3}>
@@ -38,6 +40,14 @@ function App() {
                     <SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder})} />
                 </HStack>
                 <GameGrid gameQuery={gameQuery} />
+            </GridItem>
+            <GridItem  area="footer">
+                <Center bg='gray.700' h='200px' color='white' >
+                    <Flex flexDir={'column'} justifyContent={'center'} alignItems={'center'}>
+                        <Image src={nizarImg} boxSize="70px" borderRadius="full" />
+                        <Text fontFamily={'monospace'} fontSize="18px">INizar&copy;2023</Text>
+                    </Flex>
+                </Center>
             </GridItem>
         </Grid>
     )

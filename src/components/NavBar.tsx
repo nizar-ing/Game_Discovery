@@ -4,9 +4,10 @@ import {ColorModeSwitch} from "./ColorModeSwitch";
 import React from "react";
 import {SearchInput} from "./SearchInput";
 
-export const NavBar: React.FC<{ colorMode: ColorMode, toggleColorMode: () => void }> = ({
+export const NavBar: React.FC<{ colorMode: ColorMode, toggleColorMode: () => void, onSearch: (searchText: string) => void }> = ({
                                                                                             colorMode,
-                                                                                            toggleColorMode
+                                                                                            toggleColorMode,
+                                                                                            onSearch
                                                                                         }) => {
     //const {colorMode, toggleColorMode} =  useColorMode();
 
@@ -16,7 +17,7 @@ export const NavBar: React.FC<{ colorMode: ColorMode, toggleColorMode: () => voi
                 bg={colorMode === 'dark' ? 'gray.700' : 'whitesmoke'}
         >
             <Image src={logo} boxSize='60px'/>
-            <SearchInput/>
+            <SearchInput onSearch={onSearch}/>
             <ColorModeSwitch handleToggleColor={toggleColorMode} colorMode={colorMode}/>
         </HStack>
     );

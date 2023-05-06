@@ -5,5 +5,6 @@ import {PlatformModel} from "../models/Platform.Model";
     genre: Genre | null;
     platform: PlatformModel | null;
     sortOrder: string;
+    searchText: string;
 }
 export default GameQuery;

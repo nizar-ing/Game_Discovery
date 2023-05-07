@@ -8,7 +8,7 @@ import {Emoji} from "./Emoji";
 
 export const GameCard: React.FC<{game: Game}> = ({game}) => {
     return (
-      <Card height='370px'>
+      <Card height='390px'>
           <Image src={getCroppedImageUrl(game.background_image)} />
           <CardBody>
               <HStack justifyContent='space-between' marginBottom={3}>
